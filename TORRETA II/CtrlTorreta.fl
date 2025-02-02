@@ -1,0 +1,43 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0309
+header_name {.h}
+code_name {.cxx}
+class CtrlTorreta {
+  comment {classe legal >=p} open
+} {
+  Function {CtrlTorreta()} {
+    comment {construtor da classe } open
+  } {
+    Fl_Window window_Tctrl {
+      label {controle torreta} open
+      xywh {920 231 430 330} type Double resizable visible
+    } {
+      Fl_Dial ud_dial {
+        label {Up          Down}
+        private xywh {28 25 130 130} box PLASTIC_ROUND_DOWN_BOX labelfont 4
+      }
+      Fl_Dial lr_dial {
+        label {Left       Right}
+        private xywh {271 25 130 130} box PLASTIC_ROUND_DOWN_BOX labelfont 4
+      }
+      Fl_Button {} {
+        label {FIRE!}
+        callback {this -> fire();}
+        xywh {125 205 175 25} box PLASTIC_UP_BOX down_box PLASTIC_THIN_DOWN_BOX selection_color 1 labelfont 4 labelsize 20 resizable hotspot
+      }
+      Fl_Button {} {
+        label {all rights reserved}
+        image {../../../../../../Pictures/Screenshots/hss menor.png} xywh {370 290 25 25} labelsize 1 labelcolor 7 align 512
+      }
+    }
+  }
+  Function {show()} {
+    comment {abre a janela :0} open return_type void
+  } {
+    code {this -> CntrlTorreta -> show();} {}
+  }
+  Function {close()} {open return_type void
+  } {}
+  Function {fire()} {open private return_type void
+  } {}
+}
