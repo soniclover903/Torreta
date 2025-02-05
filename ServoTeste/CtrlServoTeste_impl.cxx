@@ -23,14 +23,19 @@ void ControleServoTeste::conect(){
     this -> serial.openPort("\\\\.\\COM3");
     std::cout << "COM 1 aqui" << std::endl;
     this -> serial.configurePort(soren, SerialPort::parityNone);
-    this -> serial.clearBuffer();
 }
 
 void ControleServoTeste::converca(){
     //port
-    this -> serial << "dance";
+    this -> serial.clearBuffer();
+    //this -> serial << "dance";
     //oq funciona
     int heidegger;
     heidegger = this -> potenciometro -> value();
     std::cout << heidegger << std::endl;
+    //novo
+    std::string ang = std::to_string(heidegger);
+    std::string pos = "LR_TURN_TO:" + ang;
+    std::cout << pos << std::endl;
+    this -> serial << pos;
 }
