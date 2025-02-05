@@ -1,0 +1,48 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0309
+header_name {.h}
+code_name {.cxx}
+class ControleServoTeste {
+  comment {cria classe do controle do servo} open
+} {
+  Function {ControleServoTeste()} {
+    comment {metodo construtor} open
+  } {
+    Fl_Window UmaJanela {
+      label {Controle Servo} open
+      private xywh {65 195 300 350} type Double visible
+    } {
+      Fl_Dial potenciometro {
+        label {L/R}
+        callback {this -> atualizar(this -> potenciometro -> value());}
+        private xywh {50 20 200 200} box PLASTIC_ROUND_UP_BOX color 1 labelfont 4 maximum 180 step 1
+      }
+      Fl_Value_Slider slider {
+        callback {this -> atualizar(this -> slider -> value());}
+        private xywh {50 250 200 25} type Horizontal box PLASTIC_UP_BOX color 4 maximum 180 step 1
+      }
+      Fl_Button Ok {
+        label {OK!}
+        callback {this -> converca();}
+        private xywh {120 291 60 30} box PLASTIC_THIN_UP_BOX color 62 labelfont 4
+      }
+      Fl_Light_Button luz {
+        label { link}
+        callback {this -> conect();}
+        private xywh {45 290 60 30} box PLASTIC_DOWN_BOX labelfont 4
+      }
+    }
+  }
+  Function {MyShow()} {open return_type void
+  } {}
+  Function {close()} {open return_type void
+  } {}
+  Function {atualizar(double valor)} {open private return_type void
+  } {}
+  Function {converca()} {
+    comment {SERIAL COMUNISM} open private return_type void
+  } {}
+  Function {conect()} {
+    comment conecta open selected private return_type void
+  } {}
+}
